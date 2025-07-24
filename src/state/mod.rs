@@ -1,6 +1,4 @@
-use std::collections::LinkedList;
-
-use crate::curses::context::{self, CursesContext};
+use crate::curses::context::CursesContext;
 
 #[derive(Debug)]
 pub struct ApplicationState {
@@ -15,6 +13,10 @@ pub struct CursorState {
     pub y: i32
 }
 
+/*
+Could use Ropes to make it faster.
+Doubly linked list with LRU Cache could also improve performance 
+*/
 #[derive(Debug)]
 pub struct EditorState {
     pub cursor: CursorState,
