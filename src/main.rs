@@ -17,8 +17,8 @@ fn main() {
 
     flux_store.add_listener(render_provider::render_state);
     // flux_store.add_listener(state_logger);
-    flux_store.execute(&|state: &mut State| state.editor_state.content = vec![vec!['a', 'b'], vec!['c', 'd']]);
-    for _ in 0..6 { // For debugging purposes 
+    // flux_store.execute(&|state: &mut State| state.editor_state.content = vec![vec!['a']]);
+    loop { // For debugging purposes 
         keyboard_handler(&mut flux_store);
     }
     // keyboard_provider::close_window_after_keypress();

@@ -10,7 +10,9 @@ pub struct ApplicationState {
 #[derive(Debug)]
 pub struct CursorState {
     pub x: i32,
-    pub y: i32
+    pub y: i32,
+    pub desired_x: i32,
+    pub desired_y: i32
 }
 
 /*
@@ -62,7 +64,7 @@ impl FluxStore {
 impl State {
     pub fn new(width: i32, height: i32, curses_ctx: CursesContext) -> State {
         let application_state = ApplicationState { context: curses_ctx, width: width, height: height };
-        let editor_state = EditorState { content: Vec::new(), cursor: CursorState { x: 0, y: 0 } };
+        let editor_state = EditorState { content: vec![vec![]], cursor: CursorState { x: 0, y: 0, desired_x: 0, desired_y: 0 } }; // Empty 2d vec so one starts on first line 
         State { application_state, editor_state }
     }
 }
