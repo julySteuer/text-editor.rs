@@ -68,3 +68,13 @@ impl State {
         State { application_state, editor_state }
     }
 }
+
+pub mod helper {
+    use crate::state::CursorState;
+
+    pub fn update_cursor_and_desired_cursor(state: &mut CursorState, x: i32, y: i32) {
+        state.desired_x = x;
+        state.x = x;
+        state.y = y;
+    }
+}
